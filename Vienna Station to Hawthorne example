@@ -1,0 +1,40 @@
+import math
+
+# Define waypoints (latitude, longitude, altitude)
+vienna_station = (38.8977, -77.0365, 30)  # Replace with actual coordinates
+hawthorne_village = (38.8801, -77.0403, 40)  # Replace with actual coordinates
+
+# Function to calculate distance between waypoints
+def distance(lat1, lon1, alt1, lat2, lon2, alt2):
+  # Implement Haversine formula for distance calculation
+  # You can find the implementation online
+
+# Main control loop
+def autonomous_flight():
+  # Connect to Nvidia VTOL autopilot (replace with actual library)
+  # ... (connection logic)
+
+  # Arm and take off (replace with actual commands)
+  # ...
+
+  # Navigate to waypoints
+  current_waypoint = vienna_station
+  while current_waypoint != hawthorne_village:
+    target_waypoint = hawthorne_village if current_waypoint == vienna_station else vienna_station
+
+    # Calculate distance and bearing to target waypoint
+    distance_to_target = distance(*current_waypoint, *target_waypoint)
+    bearing_to_target = math.atan2(target_waypoint[1] - current_waypoint[1],
+                                   target_waypoint[0] - current_waypoint[0])
+
+    # Send navigation commands to autopilot (replace with actual commands)
+    # ... (navigation commands based on distance and bearing)
+
+    # Update current waypoint after reaching target
+    current_waypoint = target_waypoint
+
+  # Land (replace with actual commands)
+  
+
+# Run the autonomous flight program
+autonomous_flight()
